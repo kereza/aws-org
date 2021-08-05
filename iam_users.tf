@@ -7,7 +7,7 @@ resource "aws_iam_user" "users" {
 }
 
 # Password creation with GPG guy provided by the user (the password will have to be changed on initial signin)
-resource "aws_iam_user_login_profile" "tis_user_login_profile" {
+resource "aws_iam_user_login_profile" "user_login_profile" {
   for_each                = toset([for i in var.iam_users : i.user])
   user                    = aws_iam_user.users[each.key].name
   pgp_key                 = file("${path.module}/gpg_keys/${each.key}.gpg")
