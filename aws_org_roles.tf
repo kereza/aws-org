@@ -32,5 +32,5 @@ resource "aws_iam_role_policy" "tis_sub_acc_role_policy" {
   for_each = toset(var.sub_roles)
   name     = each.value
   role     = aws_iam_role.sub_acc_roles[each.value].id
-  policy   = templatefile("${path.module}/role_policies/${each.value}.json", { account_id = var.account_id })
+  policy   = templatefile("${path.module}/initial_role_policies/${each.value}.json", { account_id = var.account_id })
 }
