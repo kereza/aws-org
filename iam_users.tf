@@ -1,7 +1,7 @@
 # User Creation
 resource "aws_iam_user" "users" {
   for_each      = toset([for i in var.iam_users : i.user])
-  name          = "${each.key}"
+  name          = each.key
   path          = "/"
   force_destroy = true
 }
