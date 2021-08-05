@@ -33,3 +33,20 @@ variable "max_session_duration" {
   description = "The time in seconds for which temporary crendetials are received when this role is ASSUMED"
   default     = "43200"
 }
+
+variable "iam_users" {
+  description = "A list of ID of maps of user data"
+  type = list(map(string))
+  default = [
+    {
+      real_name  = "Chori Papi"
+      user       = "chori"
+      department = "CloudOps"
+    },
+    {
+      real_name  = "Mango Jeri"
+      user       = "mango"
+      department = "Developers"
+    }
+  ]
+}
