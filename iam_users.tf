@@ -20,6 +20,6 @@ resource "aws_iam_group_membership" "tis_membership" {
   for_each   = var.iam_groups_users_map
   name       = "${each.key} Group Membership"
   group      = each.key
-  users      = [for i in each.value : format("${i}%s", "@org")]
+  users      = each.value
   depends_on = [aws_iam_group.groups, aws_iam_user.users]
 }
