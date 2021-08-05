@@ -19,6 +19,6 @@ resource "aws_iam_policy" "default_org_policy" {
 resource "aws_iam_group_policy_attachment" "org_default" {
   for_each   = var.iam_groups_acc_map
   group      = each.key
-  policy_arn = aws_iam_policy.default_tis_policy[each.key].arn
-  depends_on = [aws_iam_group.tis_groups]
+  policy_arn = aws_iam_policy.default_org_policy[each.key].arn
+  depends_on = [aws_iam_group.groups]
 }
