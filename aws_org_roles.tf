@@ -25,7 +25,7 @@ resource "aws_iam_policy" "tis_sub_acc_boundary_role_policy" {
   description = "Main Boundary Policy, which need to be attached to every UserManage role"
   name        = "MainBoundaryPolicy"
   path        = "/"
-  policy      = templatefile("${path.module}/role_policies/MainBoundary.json", {})
+  policy      = templatefile("${path.module}/initial_role_policies/MainBoundary.json", {})
 }
 
 resource "aws_iam_role_policy" "tis_sub_acc_role_policy" {
