@@ -25,7 +25,7 @@ variable "iam_groups_acc_map" {
 variable "sub_roles" {
     description = "List of roles to be created in the AWS acc"
     type = list(string)
-    default = ["DevOps", "Developers"]
+    default = ["CloudOps", "Developers"]
 }
 
 variable "max_session_duration" {
