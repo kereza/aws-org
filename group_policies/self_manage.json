@@ -72,7 +72,7 @@
         },
         {
             "Sid": "AllowPassChange",
-            "Effect": "Deny",
+            "Effect": "Allow",
             "NotAction": [
                 "iam:CreateVirtualMFADevice",
                 "iam:EnableMFADevice",
