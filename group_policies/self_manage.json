@@ -2,19 +2,6 @@
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "AlloManagePersonalSSHKeysCodeCommit",
-            "Effect": "Allow",
-            "Action": [
-                "iam:ListServiceSpecificCredentials",
-                "iam:ListSSHPublicKeys",
-                "iam:UploadSSHPublicKey",
-                "iam:DeleteSSHPublicKey",
-                "iam:GetSSHPublicKey"
-
-            ],
-            "Resource": "arn:aws:iam::*:user/$${aws:username}"
-        },
-        {
             "Sid": "ViewAndUpdateAccessKeys",
             "Effect": "Allow",
             "Action": [
