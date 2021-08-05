@@ -1,0 +1,93 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "CopiedFromPowerUserRole1",
+            "Effect": "Allow",
+            "NotAction": [
+                "iam:*",
+                "organizations:*",
+                "account:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "CopiedFromPowerUserRole2",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateServiceLinkedRole",
+                "iam:DeleteServiceLinkedRole",
+                "iam:ListRoles",
+                "iam:ListInstanceProfiles",
+                "organizations:DescribeOrganization",
+                "account:ListRegions"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "BoundaryMustBeAttached",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateRole",
+                "iam:DetachRolePolicy",
+                "iam:AttachRolePolicy",
+                "iam:PutRolePermissionsBoundary"
+            ],
+            "Resource": "arn:aws:iam::${account_id}:role/UserManaged-*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PermissionsBoundary": "arn:aws:iam::${account_id}:policy/MainBoundaryPolicy"
+                }
+            }
+        },
+        {
+            "Sid": "IAMAllowWithNoCondition",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListPolicies",
+                "iam:ListServerCertificates",
+                "iam:GetPolicyVersion",
+                "iam:PassRole",
+                "iam:GetPolicy",
+                "iam:GenerateServiceLastAccessedDetails",
+                "iam:RemoveRoleFromInstanceProfile"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "OnlyCreateIAMwithUserManagedPrefix",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateInstanceProfile",
+                "iam:DeleteInstanceProfile",
+                "iam:GetRole",
+                "iam:ListRoleTags",
+                "iam:RemoveRoleFromInstanceProfile",
+                "iam:DeleteRole",
+                "iam:PutRolePolicy",
+                "iam:AddRoleToInstanceProfile",
+                "iam:CreatePolicy",
+                "iam:ListPolicyVersions",
+                "iam:ListAttachedRolePolicies",
+                "iam:DeleteRolePolicy",
+                "iam:ListRolePolicies",
+                "iam:GetRolePolicy",
+                "iam:CreatePolicyVersion",
+                "iam:ListEntitiesForPolicy",
+                "iam:DeletePolicy",
+                "iam:DeletePolicyVersion",
+                "iam:GetInstanceProfile",
+                "iam:ListInstanceProfilesForRole",
+                "iam:UpdateAssumeRolePolicy",
+                "iam:CreateRole",
+                "iam:TagRole"
+            ],
+            "Resource": [
+                "arn:aws:iam::${account_id}:policy/UserManaged-*",
+                "arn:aws:iam::${account_id}:role/UserManaged-*",
+                "arn:aws:iam::${account_id}:instance-profile/UserManaged-*",
+                "arn:aws:iam::${account_id}:role/aws-service-role/es.amazonaws.com/AWSServiceRoleFor*"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+     {
+        "Sid": "S3FullAccess",
+        "Effect": "Allow",
+        "Action": "s3:*",
+        "Resource": "*"
+     },
+     {
+        "Sid": "CloudWatchReadOnly",
+        "Action": [
+          "autoscaling:Describe*",
+          "cloudwatch:Describe*",
+          "cloudwatch:Get*",
+          "cloudwatch:List*",
+          "logs:Get*",
+          "logs:List*",
+          "logs:StartQuery",
+          "logs:StopQuery",
+          "logs:Describe*",
+          "logs:TestMetricFilter",
+          "logs:FilterLogEvents",
+          "sns:Get*",
+          "sns:List*"
+        ],
+        "Effect": "Allow",
+        "Resource": "*"
+      },
+      {
+        "Sid": "KMS",
+        "Effect": "Allow",
+        "Action": "kms:*",
+        "Resource": "*"
+      },
+      {
+        "Sid": "AllowAllElasticSearchCluster",
+        "Effect": "Allow",
+        "Action": "es:*",
+        "Resource": "*"
+      }
+  ]
+}
