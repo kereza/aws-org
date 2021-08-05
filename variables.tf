@@ -50,3 +50,11 @@ variable "iam_users" {
     }
   ]
 }
+
+variable "iam_groups_users_map" {
+  description = "Map of IAM groups and wich IAM users are members of that group"
+  default = {
+    "CloudOps"    = ["chori"]
+    "Developers"  = ["mango"]
+  }
+}
