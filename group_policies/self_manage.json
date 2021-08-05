@@ -88,12 +88,7 @@
                 "iam:GetAccountPasswordPolicy",
                 "iam:ChangePassword"
             ],
-            "Resource": "*",
-            "Condition": {
-                "BoolIfExists": {
-                    "aws:MultiFactorAuthPresent": "false"
-                }
-            }
+            "Resource": "*"
         }
     ]
 }
