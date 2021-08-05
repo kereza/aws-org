@@ -1,0 +1,11 @@
+${jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "",
+        "Effect": "Allow",
+        "Action": "sts:AssumeRole",
+        "Resource": [for acc_id in acc_id : "arn:aws:iam::${acc_id}:role/OrganizationAccount${group_name}AccessRole"]
+      }
+    ]
+})}
