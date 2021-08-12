@@ -1,7 +1,7 @@
 variable "master_acc_id" {
   description = "The ID of the master AWS acc"
-  type = string
-  default = "131845455848"
+  type        = string
+  default     = "131845455848"
 }
 
 /*
@@ -9,23 +9,23 @@ For the example we have only ONE AWS account that is why - same value
 */
 variable "account_id" {
   description = "The ID of the sub AWS acc"
-  type = string
-  default = "131845455848"
+  type        = string
+  default     = "131845455848"
 }
 
 variable "iam_groups_acc_map" {
   description = "Map of IAM groups and in which AWS accounts they can ASSSUME Roles"
-  type = map(list(string))
+  type        = map(list(string))
   default = {
-    "CloudOps"    = ["131845455848"]
-    "Developers"  = ["131845455848"]
+    "CloudOps"   = ["131845455848"]
+    "Developers" = ["131845455848"]
   }
 }
 
 variable "sub_roles" {
-    description = "List of roles to be created in the AWS acc"
-    type = list(string)
-    default = ["CloudOps", "Developers"]
+  description = "List of roles to be created in the AWS acc"
+  type        = list(string)
+  default     = ["CloudOps", "Developers"]
 }
 
 variable "max_session_duration" {
@@ -36,7 +36,7 @@ variable "max_session_duration" {
 
 variable "iam_users" {
   description = "A list of ID of maps of user data"
-  type = list(map(string))
+  type        = list(map(string))
   default = [
     {
       real_name  = "Chori Papi"
@@ -54,7 +54,7 @@ variable "iam_users" {
 variable "iam_groups_users_map" {
   description = "Map of IAM groups and wich IAM users are members of that group"
   default = {
-    "CloudOps"    = ["chori"]
-    "Developers"  = ["mango"]
+    "CloudOps"   = ["chori"]
+    "Developers" = ["mango"]
   }
 }

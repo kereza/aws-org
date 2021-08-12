@@ -2,7 +2,7 @@
 # NOT used in Terraform Cloud
 terraform {
   backend "remote" {
-    hostname = "app.terraform.io"
+    hostname     = "app.terraform.io"
     organization = "main-organization"
 
     workspaces {

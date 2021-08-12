@@ -1,0 +1,23 @@
+# Since this this is monorepo we want to run FMT and VALIDATE in every terrafrom subdirectory
+name: "Terraform"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  loop:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: 0.13.5
+        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+    - run: terraform fmt -check ${{matrix.dir}}
+      # # In order to validate the code we need to TF INIT and select some WORKSPACE
+    # - run: terraform workspace new dev
+    # - run: cd ${{matrix.dir}} && terraform init
+    # - run: cd ${{matrix.dir}} && terraform validate
