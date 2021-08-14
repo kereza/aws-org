@@ -49,6 +49,7 @@
                 "iam:GetPolicyVersion",
                 "iam:PassRole",
                 "iam:GetPolicy",
+                "iam:GetRole",
                 "iam:GenerateServiceLastAccessedDetails",
                 "iam:RemoveRoleFromInstanceProfile"
             ],
@@ -60,7 +61,6 @@
             "Action": [
                 "iam:CreateInstanceProfile",
                 "iam:DeleteInstanceProfile",
-                "iam:GetRole",
                 "iam:ListRoleTags",
                 "iam:RemoveRoleFromInstanceProfile",
                 "iam:DeleteRole",
