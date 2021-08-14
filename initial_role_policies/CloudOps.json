@@ -88,6 +88,23 @@
                 "arn:aws:iam::${account_id}:instance-profile/UserManaged-*",
                 "arn:aws:iam::${account_id}:role/aws-service-role/es.amazonaws.com/AWSServiceRoleFor*"
             ]
+        },
+        {
+            "Sid": "EKSAllowAddingOpenIDProvider",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListOpenIDConnectProviders",
+                "iam:RemoveClientIDFromOpenIDConnectProvider",
+                "iam:ListOpenIDConnectProviderTags",
+                "iam:UpdateOpenIDConnectProviderThumbprint",
+                "iam:UntagOpenIDConnectProvider",
+                "iam:AddClientIDToOpenIDConnectProvider",
+                "iam:DeleteOpenIDConnectProvider",
+                "iam:GetOpenIDConnectProvider",
+                "iam:TagOpenIDConnectProvider",
+                "iam:CreateOpenIDConnectProvider"
+            ],
+            "Resource": "*"
         }
     ]
 }
