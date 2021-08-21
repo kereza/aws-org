@@ -1,4 +1,4 @@
-# aws-org
+# AWS Organizations, IAM roles, IAM users and groups etc
 
 This repo is part of series of personal repos where I do tests on the following topics:
 
@@ -12,4 +12,4 @@ This particular repo is for setting up the AWS Organizations, IAM roles, IAM use
 In a real AWS organizations you would have:
     - Many AWS accounts organized in tree structure and Service Control Policies placed.
     - Central place for API logs
-    - User Access in the subaccount is based on IAM roles with trust in the main/master AWS account
+    - User Access in the subaccount is based on IAM roles with trust in the main/master AWS account 
